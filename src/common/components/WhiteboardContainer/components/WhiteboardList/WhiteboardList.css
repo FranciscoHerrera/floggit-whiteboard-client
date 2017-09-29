@@ -1,0 +1,9 @@
+@import '../../../../css/variables/colors.css';
+
+.WhiteboardList {
+  margin: 2px;
+}
+
+.WhiteboardList li:nth-child(odd) {
+  background-color: var(--color-secondary);
+}

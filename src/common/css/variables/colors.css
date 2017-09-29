@@ -1,0 +1,30 @@
+:root {
+  /* Main colors */
+  --color-primary: #95ab63;
+  --color-secondary: #bdd684;
+  --color-tertiary: #e2f0d6;
+  --color-quartinery: #f6ffe0;
+  --color-quinary: #10222b;
+
+  /* Gray colors */
+  --color-neutral-90: #1a1a1a;
+  --color-neutral-85: #262626;
+  --color-neutral-80: #333;
+  --color-neutral-70: #4d4d4d;
+  --color-neutral-60: #666;
+  --color-neutral-50: #808080;
+  --color-neutral-40: #999;
+  --color-neutral-35: #acacac;
+  --color-neutral-30: #b3b3b3;
+  --color-neutral-25: #bfbfbf;
+  --color-neutral-20: #ccc;
+  --color-neutral-15: #cdcdcd;
+  --color-neutral-13: #dedede;
+  --color-neutral-10: #e6e6e6;
+  --color-neutral-8: #ebebeb;
+  --color-neutral-7: #ededed;
+  --color-neutral-6: #f0f0f0;
+  --color-neutral-5: #f2f2f2;
+  --color-neutral-3: #f7f7f7;
+  --color-neutral-2: #fafafa;
+}
