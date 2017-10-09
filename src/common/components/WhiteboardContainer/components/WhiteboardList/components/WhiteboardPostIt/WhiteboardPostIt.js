@@ -50,7 +50,6 @@ const WhiteboardPostIt = (props) => {
           ref={(currentElement) => { authorName = currentElement; }}
           placeholder="new name"
         />
-        <h6>{props.color}</h6>
         <select
           name="color"
           ref={(currentElement) => { color = currentElement; }}

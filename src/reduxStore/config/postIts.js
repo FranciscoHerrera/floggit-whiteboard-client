@@ -3,8 +3,8 @@ import whiteboardAPI from '../../utils/whiteboardAPI';
 // ACTIONS
 const POSTIT_ADD = 'POSTIT_ADD';
 const POSTIT_REMOVE = 'POSTIT_REMOVE';
-const POSTIT_UPDATE = 'POSTIT_UPDATE';
 const POSTIT_LIST_REPLACE = 'POSTIT_LIST_REPLACE';
+const POSTIT_UPDATE = 'POSTIT_UPDATE';
 
 // REDUCER
 const reducer = (state = [], action) => {
@@ -15,12 +15,12 @@ const reducer = (state = [], action) => {
     case POSTIT_REMOVE: {
       return state.filter(postIt => postIt.id !== action.data.id);
     }
+    case POSTIT_LIST_REPLACE: {
+      return [...action.data.postIts];
+    }
     case POSTIT_UPDATE: {
       return state.map(postIt => ((postIt.id === action.data.id) ?
         { ...postIt, ...action.data.id } : postIt));
-    }
-    case POSTIT_LIST_REPLACE: {
-      return [...action.data.postIts];
     }
     default:
       return state;
@@ -38,14 +38,14 @@ const internalRemovePostIt = id => ({
   data: { id },
 });
 
-const internalUpdatePostIt = (id, title, infoList, authorName, color) => ({
-  type: POSTIT_UPDATE,
-  data: { title, infoList, authorName, color },
-});
-
 const internalReplaceAllPostIts = postIts => ({
   type: POSTIT_LIST_REPLACE,
   data: { postIts },
+});
+
+const internalUpdatePostIt = (id, title, infoList, authorName, color) => ({
+  type: POSTIT_UPDATE,
+  data: { title, infoList, authorName, color },
 });
 
 // Redux thunk action creators
@@ -60,16 +60,17 @@ const removePostIt = id => dispatch => whiteboardAPI.remove(id)
     dispatch(internalRemovePostIt(id));
   });
 
-const updatePostIt = (id, title, infoList, authorName, color) => dispatch =>
-  whiteboardAPI.update(id, title, infoList, authorName, color)
-    .then(() => {
-      dispatch(internalUpdatePostIt(title, infoList, authorName, color));
-    });
-
 const loadPostIts = () => dispatch => whiteboardAPI.getAll()
   .then((postIts) => {
     dispatch(internalReplaceAllPostIts(postIts));
   });
 
-export { addPostIt, removePostIt, updatePostIt, loadPostIts };
+const updatePostIt = (id, title, infoList, authorName, color) => dispatch =>
+  whiteboardAPI.update(id, title, infoList, authorName, color)
+    .then(() => {
+      dispatch(internalUpdatePostIt(title, infoList, authorName, color));
+      dispatch(loadPostIts());
+    });
+
+export { addPostIt, removePostIt, loadPostIts, updatePostIt };
 export default reducer;
