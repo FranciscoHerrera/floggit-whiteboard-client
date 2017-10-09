@@ -3,7 +3,3 @@
 .WhiteboardList {
   margin: 2px;
 }
-
-.WhiteboardList li:nth-child(odd) {
-  background-color: var(--color-secondary);
-}
