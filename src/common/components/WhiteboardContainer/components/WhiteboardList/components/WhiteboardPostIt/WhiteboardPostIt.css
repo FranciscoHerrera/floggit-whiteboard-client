@@ -1,1 +1,34 @@
 @import '../../../../../../css/variables/colors.css';
+
+li.WhiteboardPostIt-post-it {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+}
+
+.WhiteboardPostIt-title {
+  line-height: 30px;
+}
+
+li.WhiteboardPostIt-post-it.added-post-it {
+  opacity: 0;
+  animation: new-item-animation 1s ease-in forwards;
+}
+
+li.WhiteboardPostIt-post-it.updated-post-it {
+  opacity: 0;
+  animation: new-item-animation 1s ease-in forwards;
+}
+
+@keyframes new-item-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
