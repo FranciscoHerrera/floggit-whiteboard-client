@@ -4,8 +4,7 @@ import WhiteboardContainer from '../../common/components/WhiteboardContainer';
 
 const Home = () => (
   <div>
-    <h1>Toms great home page</h1>
-    <WhiteboardContainer />
+    <h1>Floggit</h1>
     <WhiteboardContainer />
   </div>
 );
