@@ -1,1 +1,8 @@
 @import '../../css/variables/colors.css';
+
+.WhiteboardContainer-wrapper {
+  max-width: 300px;
+  margin: 5px;
+  padding: 5px;
+  border: solid 1px var(--color-neutral-30);
+}
