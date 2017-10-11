@@ -9,23 +9,21 @@ const WhiteboardPostIt = (props) => {
   let infoList;
   let authorName;
   let color;
+  let visible;
+  let editVisible;
 
   const handleRemove = () => {
     props.onRemove(props.id);
   };
 
   const showInput = () => {
-    const show = document.getElementsByClassName('inputs');
-    for (let i = 0; i !== show.length; i += 1) {
-      show[i].style.display = 'block';
-    }
+    visible.style.display = 'block';
+    editVisible.style.display = 'none';
   };
 
   const hideInput = () => {
-    const hide = document.getElementsByClassName('inputs');
-    for (let i = 0; i !== hide.length; i += 1) {
-      hide[i].style.display = 'none';
-    }
+    visible.style.display = 'none';
+    editVisible.style.display = 'block';
   };
 
   const handleUpdate = () => {
@@ -63,12 +61,16 @@ const WhiteboardPostIt = (props) => {
         </div>
       </div>
       <button
+        ref={(currentElement) => { editVisible = currentElement; }}
         id="edit"
         onClick={showInput}
       >
       Edit
       </button>
-      <div className="inputs">
+      <div
+        className="inputs"
+        ref={(currentElement) => { visible = currentElement; }}
+      >
         <input
           type="text"
           ref={(currentElement) => { title = currentElement; }}

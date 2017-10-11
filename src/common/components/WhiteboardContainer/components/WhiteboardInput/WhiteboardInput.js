@@ -8,19 +8,14 @@ const WhiteboardInput = (props) => {
   let infoList;
   let authorName;
   let color;
+  let visible;
 
   const hideAdd = () => {
-    const hide = document.getElementsByClassName('show-input');
-    for (let i = 0; i !== hide.length; i += 1) {
-      hide[i].style.display = 'none';
-    }
+    visible.style.display = 'none';
   };
 
   const showAdd = () => {
-    const show = document.getElementsByClassName('show-input');
-    for (let i = 0; i !== show.length; i += 1) {
-      show[i].style.display = 'block';
-    }
+    visible.style.display = 'block';
   };
 
   const handleClick = () => {
@@ -37,7 +32,10 @@ const WhiteboardInput = (props) => {
       <button type="button" onClick={showAdd}>
       + Add
       </button>
-      <div className="show-input">
+      <div
+        className="show-input"
+        ref={(currentElement) => { visible = currentElement; }}
+      >
         <input
           type="text"
           ref={(currentElement) => { title = currentElement; }}
