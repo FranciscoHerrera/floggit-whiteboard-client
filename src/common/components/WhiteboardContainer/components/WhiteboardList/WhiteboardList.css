@@ -1,5 +1,9 @@
 @import '../../../../css/variables/colors.css';
 
 .WhiteboardList {
-  margin: 2px;
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  margin: 5px;
+  padding: 5px;
 }

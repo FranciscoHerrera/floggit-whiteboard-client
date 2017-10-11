@@ -1,6 +1,7 @@
 import React from 'react';
 
 import whiteboardInputProps from './WhiteboardInput.props';
+import { COLOR_1, COLOR_2, COLOR_3, COLOR_4, COLOR_NAME_1, COLOR_NAME_2, COLOR_NAME_3, COLOR_NAME_4 } from '../constants';
 
 const WhiteboardInput = (props) => {
   let title;
@@ -8,65 +9,69 @@ const WhiteboardInput = (props) => {
   let authorName;
   let color;
 
+  const hideAdd = () => {
+    const hide = document.getElementsByClassName('show-input');
+    for (let i = 0; i !== hide.length; i += 1) {
+      hide[i].style.display = 'none';
+    }
+  };
+
+  const showAdd = () => {
+    const show = document.getElementsByClassName('show-input');
+    for (let i = 0; i !== show.length; i += 1) {
+      show[i].style.display = 'block';
+    }
+  };
+
   const handleClick = () => {
     props.onAdd(title.value, infoList.value, authorName.value, color.value);
     title.value = '';
     infoList.value = '';
     authorName.value = '';
     color.value = '';
+    hideAdd();
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        ref={(currentElement) => { title = currentElement; }}
-        placeholder="title"
-      />
-      <textarea
-        ref={(currentElement) => { infoList = currentElement; }}
-        name="info-list"
-      />
-      <input
-        type="text"
-        ref={(currentElement) => { authorName = currentElement; }}
-        placeholder="name"
-      />
-      <select
-        name="color"
-        ref={(currentElement) => { color = currentElement; }}
-      >
-        <option value="">Choose color</option>
-        <option
-          value="#ff99cc"
-        >
-              Pink
-        </option>
-        <option
-          value="#66ccff"
-        >
-              Blue
-        </option>
-        <option
-          value="#ccff99"
-        >
-              Green
-        </option>
-        <option
-          value="#ffff99"
-        >
-              Yellow</option>
-      </select>
-      <button
-        type="button"
-        onClick={handleClick}
-      >
-          add post-it
+    <div className="create-postIt">
+      <button type="button" onClick={showAdd}>
+      + Add
       </button>
+      <div className="show-input">
+        <input
+          type="text"
+          ref={(currentElement) => { title = currentElement; }}
+          placeholder="Title"
+        />
+        <textarea
+          ref={(currentElement) => { infoList = currentElement; }}
+          name="info-list"
+        />
+        <input
+          type="text"
+          ref={(currentElement) => { authorName = currentElement; }}
+          placeholder="Signature"
+        />
+        <select
+          name="color"
+          ref={(currentElement) => { color = currentElement; }}
+        >
+          <option value={COLOR_1}>{COLOR_NAME_1}</option>
+          <option value={COLOR_2}>{COLOR_NAME_2}</option>
+          <option value={COLOR_3}>{COLOR_NAME_3}</option>
+          <option value={COLOR_4}>{COLOR_NAME_4}</option>
+        </select>
+        <button
+          type="button"
+          id="save"
+          onClick={handleClick}
+        >
+          Save
+        </button>
+      </div>
     </div>
   );
 };
-
 
 WhiteboardInput.propTypes = whiteboardInputProps;
 
