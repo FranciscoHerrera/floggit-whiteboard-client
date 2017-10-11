@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => ({
   handleAdd: (title, infoList, authorName, color) => {
     dispatch(addPostIt(title, infoList, authorName, color));
   },
-  handelUpdate: (id, title, infoList, authorName, color) => {
+  handleUpdate: (id, title, infoList, authorName, color) => {
     dispatch(updatePostIt(id, title, infoList, authorName, color));
   },
 });

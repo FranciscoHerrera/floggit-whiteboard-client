@@ -1,8 +1,39 @@
 @import '../../css/variables/colors.css';
 
 .WhiteboardContainer-wrapper {
-  max-width: 300px;
+  width: 90%;
   margin: 5px;
   padding: 5px;
-  border: solid 1px var(--color-neutral-30);
+}
+
+.create-postIt {
+  float: right;
+}
+
+#save {
+  float: right;
+}
+
+.show-input {
+  display: none;
+  width: 290px;
+  height: 290px;
+  margin: 5px;
+  padding: 10px;
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-neutral-20);
+  border-radius: 0.9%;
+}
+
+.input {
+  display: none;
+}
+
+.update {
+  float: right;
+  width: 290px;
+  height: 290px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 0.9%;
 }

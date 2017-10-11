@@ -11,7 +11,7 @@ const WhiteboardWrapper = props => (
     <WhiteboardList
       postIts={props.postIts}
       onItemRemove={props.handleRemove}
-      onItemUpdate={props.handelUpdate}
+      onItemUpdate={props.handleUpdate}
     />
   </div>
 );
