@@ -2,64 +2,33 @@
 @import 'variables/typography.css';
 
 body {
+  background-color: var(--color-quinary);
   font-family: var(--font-family-primary);
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h5 {
   font-weight: bold;
-  padding: 20px;
-}
-
-h1,
-h2 {
-  color: var(--color-quartinery);
-  text-shadow: 2px 2px var(--color-neutral-50);
+  padding: 20px 35px;
 }
 
 h1 {
-  background-color: var(--color-primary);
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 700;
+  font-family: var(--font-family-headings);
+  color: var(--color-primary);
 }
 
-h2 {
-  background-color: var(--color-tertiary);
-  color: var(--color-neutral-60);
+h5 {
+  font-size: 1em;
+  color: var(--color-neutral-70);
+  padding: 1px 35px;
+  font-family: var(--font-family-secondary);
+  font-variant: all-small-caps;
 }
 
-p {
-  padding: 5px 20px;
-}
-
-code {
-  color: var(--color-neutral-50);
-  font-size: 0.7em;
-  font-family: var(--font-family-monospace);
-}
-
-table {
-  margin: 20px;
-}
-
-th,
-td {
-  padding: 5px 20px;
-  border-bottom: 1px solid var(--color-neutral-20);
-}
-
-th {
-  background-color: var(--color-secondary);
-}
-
-tr:nth-child(even) {
-  background-color: var(--color-neutral-10);
-}
-
-ul,
-ol {
+ul {
   margin: 10px 35px;
 }
 
@@ -67,40 +36,57 @@ ul li {
   list-style-type: disc;
 }
 
-ol li {
-  list-style-type: lower-alpha;
-}
-
-strong {
-  font-weight: bold;
-}
-
-em {
-  font-style: italic;
-}
-
-input[type="text"] {
+input[type="text"],
+textarea {
   font-family: var(--font-family-primary);
-  font-size: 18px;
+  font-size: 12px;
+  width: 180px;
+  height: 20px;
   appearance: none;
   box-shadow: none;
   border-radius: none;
-  padding: 5px;
+  padding: 3px;
+  margin: 3px;
+  color: var(--color-neutral-90);
+  background-color: rgba(0, 0, 0, 0.16);
   border: solid 1px var(--color-neutral-13);
   transition: box-shadow 0.3s, border 0.3s;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
   outline: none;
-  border: solid 1px var(--color-neutral-40);
+  border: solid 1px var(--color-neutral-60);
   box-shadow: 0 0 5px 1px var(--color-neutral-15);
 }
 
+button:focus {
+  outline: none;
+  border: solid 1px var(--color-neutral-60);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.11);
+}
+
+textarea {
+  width: 180px;
+  height: 40px;
+}
+
+select {
+  background-color: rgba(0, 0, 0, 0.07);
+  font-family: var(--font-family-primary);
+  width: 180px;
+  margin: 2px;
+}
+
 button {
-  background-color: var(--color-primary);
-  border: none;
-  color: white;
+  background-color: var(--color-neutral-70);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.19);
+  border: solid 1px rgba(0, 0, 0, 0.16);
+  border-radius: 4%;
+  color: var(--color-neutral-20);
   padding: 8px 12px;
+  margin: 2px 6px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

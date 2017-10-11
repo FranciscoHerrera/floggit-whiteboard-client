@@ -1,5 +1,6 @@
 :root {
-  --font-family-primary: Helvetica, Arial, sans-serif;
-  --font-family-tertiary: fantasy;
-  --font-family-monospace: monospace;
+  --font-family-primary: 'Catamaran', sans-serif;
+  --font-family-secondary: 'Cairo', sans-serif;
+  --font-family-tertiary: 'Roboto', sans-serif;
+  --font-family-headings: 'Merriweather Sans', sans-serif;
 }
