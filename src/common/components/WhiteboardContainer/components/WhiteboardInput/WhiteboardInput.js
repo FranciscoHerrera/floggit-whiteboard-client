@@ -9,16 +9,23 @@ const WhiteboardInput = (props) => {
   let authorName;
   let color;
   let visible;
+  let editVisible;
 
   const hideAdd = () => {
     visible.style.display = 'none';
+    editVisible.style.display = 'block';
+
+  const hideAdd = () => {
+    visible.style.display = 'none';
+
   };
 
   const showAdd = () => {
     visible.style.display = 'block';
+    editVisible.style.display = 'none';
   };
 
-  const handleClick = () => {
+  const handleAdd = () => {
     props.onAdd(title.value, infoList.value, authorName.value, color.value);
     title.value = '';
     infoList.value = '';
@@ -29,7 +36,10 @@ const WhiteboardInput = (props) => {
 
   return (
     <div className="create-postIt">
-      <button type="button" onClick={showAdd}>
+      <button
+        ref={(currentElement) => { editVisible = currentElement; }}
+        onClick={showAdd}
+      >
       + Add
       </button>
       <div
@@ -60,9 +70,8 @@ const WhiteboardInput = (props) => {
           <option value={COLOR_4}>{COLOR_NAME_4}</option>
         </select>
         <button
-          type="button"
           id="save"
-          onClick={handleClick}
+          onClick={handleAdd}
         >
           Save
         </button>
