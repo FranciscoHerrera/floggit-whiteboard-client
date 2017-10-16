@@ -14,6 +14,7 @@ const WhiteboardInput = (props) => {
   const hideAdd = () => {
     visible.style.display = 'none';
     editVisible.style.display = 'block';
+  };
 
   const showAdd = () => {
     visible.style.display = 'block';
